@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ScanningService } from 'src/app/services/scanning.service';
+import { Item, uuid } from 'src/utils/types';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  public item: Item = {
+    description: "",
+    price: 15,
+    upc: new uuid()
+  };
+
+  constructor(private scanningService: ScanningService) { }
 
   ngOnInit(): void {
+    this.scanningService.getScannedItems().subscribe((item) => {
+      console.log(item);
+    });
   }
+
+  addItem() {
+    this.scanningService.getScannedItems().next(this.item);
+  };
 
 }
