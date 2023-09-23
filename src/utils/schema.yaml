@@ -1,0 +1,12 @@
+Transaction:
+  id: UUID
+  items: Array<Item>
+  subtotal: number
+  tax: number
+  total: number
+Receipt:
+  transaction_id: UUID
+Item:
+  upc: int
+  description: string
+  price: number
