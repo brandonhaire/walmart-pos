@@ -67,6 +67,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "sslCert": "local/server.crt",
+            "sslKey": "local/server.key",
+            "ssl": true
+          },
           "configurations": {
             "production": {
               "browserTarget": "walmart-POS:build:production"

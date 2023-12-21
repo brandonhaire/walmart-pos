@@ -1,3 +1,69 @@
-<p>checkout works!</p>
-<input [(ngModel)]="item.description">
-<button (click)="addItem()">Add Item</button>
+<div class="buttonRowOne">
+  <button (click)="addItem(club)">
+    <img
+      src="../../../assets/club.jpg"
+      alt="Club Sandwhich"
+      length="250px"
+      width="275px"
+    />
+  </button>
+  <button (click)="addItem(donut)">
+    <img
+      src="../../../assets/donut.jpg"
+      alt="Donut"
+      length="250px"
+      width="275px"
+    />
+  </button>
+  <button (click)="addItem(fries)">
+    <img
+      src="../../../assets/fries.jpg"
+      alt="Fries"
+      length="250px"
+      width="275px"
+    />
+  </button>
+</div>
+<br /><br />
+<div class="buttonRowTwo">
+  <button (click)="addItem(hotDog)">
+    <img
+      src="../../../assets/hotdog.jpg"
+      alt="Hot Dog"
+      length="250px"
+      width="275px"
+    />
+  </button>
+  <button (click)="addItem(sandwhich)">
+    <img
+      src="../../../assets/sandwhich.jpg"
+      alt="Sandwhich"
+      length="250px"
+      width="275px"
+    />
+  </button>
+  <button (click)="addItem(taco)">
+    <img
+      src="../../../assets/taco.jpg"
+      alt="Taco"
+      length="250px"
+      width="275px"
+    />
+  </button>
+</div>
+
+<br /><br />
+<div class="inputField">
+  <input [(ngModel)]="item.description" />
+  <button (click)="add()">Add Item</button>
+</div>
+
+<br /><br />
+<div class="inputField">
+  <button (click)="print()">Print Cart Items</button>
+</div>
+
+<br /><br />
+<div class="inputField">
+  <button (click)="clear()">Empty Cart</button>
+</div>

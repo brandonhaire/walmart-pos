@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, from, of } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Item } from 'src/utils/types';
 
 @Injectable({
@@ -9,13 +9,23 @@ export class ScanningService {
 
   constructor() { }
 
-  private scannedItems: Subject<Item>;
+  private scannedItems: Item[] = [];
+  private $items: Subject<Item> = new Subject();
 
-  getScannedItems(): Subject<Item> {
+  getScannedItems(): Item[] {
     return this.scannedItems;
   }
 
+  getStream(): Subject<Item>{
+    return this.$items;
+  }
+
   scanItem(item: Item) {
-    this.scannedItems.next(item);
+    this.scannedItems.push(item);
+    this.$items.next(item);
+  }
+
+  emptyCart() {
+    this.scannedItems = [];
   }
 }
